@@ -210,75 +210,91 @@
                     <div class="audio-card" id="audioCard1">
                         <div class="audio-card-visual">
                             <div class="audio-artwork">
-                                <div class="artwork-icon">
+                                <div class="artwork-bg-decor"></div>
+                                <div class="artwork-center-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                                     </svg>
                                 </div>
-                                <canvas class="waveform" id="waveform1" width="240" height="60"></canvas>
+                                <div class="artwork-label">AUDIO</div>
+                                <div class="floating-note n1">♪</div>
+                                <div class="floating-note n2">♫</div>
+                                <div class="floating-note n3">♪</div>
                             </div>
                         </div>
                         <div class="audio-card-body">
                             <h3 class="audio-title">Lord's Prayer</h3>
                             <p class="audio-subtitle">Audio Lesson</p>
                             <div class="audio-player" id="player1">
-                                <button class="play-btn" onclick="togglePlay(0)" id="playBtn1">
+                                <div class="progress-container" onclick="seekAudio(event, 0)">
+                                    <div class="progress-bar" id="progress1"></div>
+                                </div>
+                                <span class="audio-time" id="time1">0:00 / 0:00</span>
+                            </div>
+                            <div class="audio-actions">
+                                <button class="action-play" onclick="togglePlay(0)" id="playBtn1">
                                     <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                         <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
                                     </svg>
                                     <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                         <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
                                     </svg>
+                                    <span class="action-label play-label">Play</span>
+                                    <span class="action-label pause-label hidden">Pause</span>
                                 </button>
-                                <div class="progress-container" onclick="seekAudio(event, 0)">
-                                    <div class="progress-bar" id="progress1"></div>
-                                </div>
-                                <span class="audio-time" id="time1">0:00 / 0:00</span>
+                                <a class="action-download" href="Lord's Prayer.mp3" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                    </svg>
+                                    <span class="action-label">Download</span>
+                                </a>
                             </div>
-                            <a class="download-btn" href="Lord's Prayer.mp3" download>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                                </svg>
-                                Download
-                            </a>
                         </div>
                     </div>
 
                     <!-- Audio Card 2 -->
                     <div class="audio-card" id="audioCard2">
                         <div class="audio-card-visual">
-                            <div class="audio-artwork">
-                                <div class="artwork-icon">
+                            <div class="audio-artwork artwork-alt">
+                                <div class="artwork-bg-decor"></div>
+                                <div class="artwork-center-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                                     </svg>
                                 </div>
-                                <canvas class="waveform" id="waveform2" width="240" height="60"></canvas>
+                                <div class="artwork-label">AUDIO</div>
+                                <div class="floating-note n1">♪</div>
+                                <div class="floating-note n2">♫</div>
+                                <div class="floating-note n3">♪</div>
                             </div>
                         </div>
                         <div class="audio-card-body">
                             <h3 class="audio-title">The Trinitarian Formula</h3>
                             <p class="audio-subtitle">Audio Lesson</p>
                             <div class="audio-player" id="player2">
-                                <button class="play-btn" onclick="togglePlay(1)" id="playBtn2">
+                                <div class="progress-container" onclick="seekAudio(event, 1)">
+                                    <div class="progress-bar" id="progress2"></div>
+                                </div>
+                                <span class="audio-time" id="time2">0:00 / 0:00</span>
+                            </div>
+                            <div class="audio-actions">
+                                <button class="action-play" onclick="togglePlay(1)" id="playBtn2">
                                     <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                         <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
                                     </svg>
                                     <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                         <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
                                     </svg>
+                                    <span class="action-label play-label">Play</span>
+                                    <span class="action-label pause-label hidden">Pause</span>
                                 </button>
-                                <div class="progress-container" onclick="seekAudio(event, 1)">
-                                    <div class="progress-bar" id="progress2"></div>
-                                </div>
-                                <span class="audio-time" id="time2">0:00 / 0:00</span>
+                                <a class="action-download" href="The Trinitarian Formula.mp3" download>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                    </svg>
+                                    <span class="action-label">Download</span>
+                                </a>
                             </div>
-                            <a class="download-btn" href="The Trinitarian Formula.mp3" download>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                                </svg>
-                                Download
-                            </a>
                         </div>
                     </div>
 
@@ -524,11 +540,15 @@
                 audio.play();
                 btn.querySelector('.icon-play').classList.add('hidden');
                 btn.querySelector('.icon-pause').classList.remove('hidden');
+                btn.querySelector('.play-label').classList.add('hidden');
+                btn.querySelector('.pause-label').classList.remove('hidden');
                 btn.classList.add('playing');
             } else {
                 audio.pause();
                 btn.querySelector('.icon-play').classList.remove('hidden');
                 btn.querySelector('.icon-pause').classList.add('hidden');
+                btn.querySelector('.play-label').classList.remove('hidden');
+                btn.querySelector('.pause-label').classList.add('hidden');
                 btn.classList.remove('playing');
             }
         }
@@ -559,6 +579,8 @@
             const btn = document.getElementById('playBtn' + (idx + 1));
             btn.querySelector('.icon-play').classList.remove('hidden');
             btn.querySelector('.icon-pause').classList.add('hidden');
+            btn.querySelector('.play-label').classList.remove('hidden');
+            btn.querySelector('.pause-label').classList.add('hidden');
             btn.classList.remove('playing');
         }
 
