@@ -543,63 +543,117 @@ ul{list-style:none}
 
 .attendance-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   margin-bottom: 32px;
 }
 
 .attendance-card {
   background: #fff;
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
-  padding: 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
-.attendance-card:hover { border-color: var(--primary-300); box-shadow: var(--shadow-sm); }
+.attendance-card:hover { 
+  border-color: var(--primary-300); 
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(99,102,241,0.15);
+}
 .attendance-card.present {
-  background: var(--primary-50);
-  border-color: var(--primary-400);
+  background: linear-gradient(145deg, var(--primary-50), #fff);
+  border-color: var(--primary-500);
+  box-shadow: 0 8px 16px -4px rgba(99,102,241,0.2);
 }
-.attendance-card input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--primary-600);
+
+/* Custom Checkbox wrapper */
+.custom-checkbox {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.hidden-check {
+  position: absolute;
+  opacity: 0;
   cursor: pointer;
+  height: 0;
+  width: 0;
 }
+.check-circle {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--gray-300);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  background: #fff;
+}
+.check-circle svg {
+  width: 16px;
+  height: 16px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.attendance-card.present .check-circle {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+}
+.attendance-card.present .check-circle svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .attendance-info { flex: 1; min-width: 0; }
-.attendance-name { font-weight: 600; color: var(--gray-900); font-size: 15px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.attendance-class { font-size: 12px; color: var(--gray-500); }
+.attendance-name { font-weight: 700; color: var(--gray-900); font-size: 16px; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.attendance-class { font-size: 13px; color: var(--gray-500); font-weight: 500;}
 
 .attendance-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 40px;
-  padding-top: 16px;
+  padding-top: 24px;
   border-top: 1px solid var(--gray-200);
 }
 .save-attendance-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: var(--primary-600);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-md);
-  font-size: 15px;
-  font-weight: 600;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: var(--radius-lg);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 2px 8px rgba(99,102,241,0.25);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 4px 0px #000;
 }
-.save-attendance-btn:hover { background: var(--primary-700); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
-.save-attendance-btn svg { width: 20px; height: 20px; }
+.save-attendance-btn:hover { 
+  background: var(--gray-50);
+  transform: translate(2px, 2px); 
+  box-shadow: 2px 2px 0px #000; 
+}
+.save-attendance-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #000;
+}
+.save-attendance-btn svg { width: 22px; height: 22px; }
 .attendance-message { color: var(--success); font-weight: 500; font-size: 14px; animation: fadeIn 0.3s; }
 
 .attendance-history-section h3 { font-size: 18px; margin-bottom: 16px; color: var(--gray-800); }
@@ -648,3 +702,68 @@ ul{list-style:none}
 .lock-btn svg { width: 20px; height: 20px; }
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* ── Results Modal ────────────────────────────────────────────────── */
+.results-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  border: 1px solid var(--primary-200);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.results-btn:hover { background: var(--primary-600); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.2); }
+.results-btn svg { width: 18px; height: 18px; }
+
+@media(max-width: 600px) {
+  .results-btn span { display: none; }
+  .attendance-controls { width: 100%; justify-content: space-between; }
+  .date-input { flex: 1; margin: 0 8px; }
+}
+
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); z-index: 1000;
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.results-modal {
+  background: #fff; border-radius: var(--radius-xl); width: 90%; max-width: 700px;
+  max-height: 85vh; display: flex; flex-direction: column; overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+  transform: translateY(30px) scale(0.95); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-overlay.show .results-modal { transform: translateY(0) scale(1); }
+.modal-header {
+  padding: 24px 30px; border-bottom: 1px solid var(--gray-200);
+  display: flex; justify-content: space-between; align-items: center; background: var(--gray-50);
+}
+.modal-header h2 { font-size: 20px; color: var(--gray-900); font-weight: 800; }
+.close-modal {
+  background: none; border: none; font-size: 28px; color: var(--gray-500); cursor: pointer; transition: color 0.2s; line-height: 1; padding: 0;
+}
+.close-modal:hover { color: var(--danger); }
+.results-grid-container {
+  padding: 30px; overflow-y: auto; display: grid; gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.result-stat-card {
+  border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px; background: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: all 0.2s;
+}
+.result-stat-card:hover { border-color: var(--primary-300); transform: translateY(-2px); box-shadow: 0 8px 16px -4px rgba(99,102,241,0.15); }
+.stat-name { font-weight: 800; font-size: 16px; margin-bottom: 12px; color: var(--gray-900); }
+.stat-bar-container { width: 100%; height: 8px; background: #fee2e2; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+.stat-bar { height: 100%; background: #10b981; border-radius: 4px; }
+.stat-numbers { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; }
+.stat-p { color: #10b981; display: flex; align-items: center; gap: 6px; }
+.stat-p svg { width: 18px; height: 18px; }
+.stat-a { color: #ef4444; display: flex; align-items: center; gap: 6px; }
+.stat-a svg { width: 18px; height: 18px; }
