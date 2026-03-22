@@ -750,20 +750,15 @@ ul{list-style:none}
   background: none; border: none; font-size: 28px; color: var(--gray-500); cursor: pointer; transition: color 0.2s; line-height: 1; padding: 0;
 }
 .close-modal:hover { color: var(--danger); }
-.results-grid-container {
-  padding: 30px; overflow-y: auto; display: grid; gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.results-list-container {
+  padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;
 }
-.result-stat-card {
-  border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px; background: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: all 0.2s;
+.result-list-item {
+  display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s;
 }
-.result-stat-card:hover { border-color: var(--primary-300); transform: translateY(-2px); box-shadow: 0 8px 16px -4px rgba(99,102,241,0.15); }
-.stat-name { font-weight: 800; font-size: 16px; margin-bottom: 12px; color: var(--gray-900); }
-.stat-bar-container { width: 100%; height: 8px; background: #fee2e2; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
-.stat-bar { height: 100%; background: #10b981; border-radius: 4px; }
-.stat-numbers { display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; }
-.stat-p { color: #10b981; display: flex; align-items: center; gap: 6px; }
-.stat-p svg { width: 18px; height: 18px; }
-.stat-a { color: #ef4444; display: flex; align-items: center; gap: 6px; }
-.stat-a svg { width: 18px; height: 18px; }
+.result-list-item:hover { border-color: var(--primary-300); transform: translateX(2px); }
+.result-name { font-weight: 700; font-size: 15px; color: var(--gray-900); margin: 0; }
+.result-badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;}
+.badge-present { background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 13px; display: flex; align-items: center; gap: 4px; border: 1px solid #a7f3d0; }
+.badge-absent { background: #fee2e2; color: #b91c1c; padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 13px; display: flex; align-items: center; gap: 4px; border: 1px solid #fecaca; }
+.badge-present svg, .badge-absent svg { width: 16px; height: 16px; }
