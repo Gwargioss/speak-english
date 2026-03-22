@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,244 +11,316 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════════
      SIDEBAR — Desktop persistent, mobile slide-in
      ═══════════════════════════════════════════════════════════════ -->
-<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-<aside class="sidebar" id="sidebar">
-    <div class="sidebar-brand">
-        <div class="logo">E</div>
-        <span>EduTrack</span>
-    </div>
-    <nav class="sidebar-nav">
-        <a href="#" class="active">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342"/></svg>
-            Results
-        </a>
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
-            Students
-        </a>
-    </nav>
-    <!-- Instructor mini-profile at bottom -->
-    <div class="sidebar-footer">
-        <div class="instructor-mini">
-            <div class="avatar">G</div>
-            <div class="info">
-                <p>Gwargios Mouris</p>
-                <span>Instructor</span>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo">E</div>
+            <span>EduTrack</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
+                </svg>
+                Results
+            </a>
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                </svg>
+                Students
+            </a>
+        </nav>
+        <!-- Instructor mini-profile at bottom -->
+        <div class="sidebar-footer">
+            <div class="instructor-mini">
+                <div class="avatar">G</div>
+                <div class="info">
+                    <p>Gwargios Mouris</p>
+                    <span>Instructor</span>
+                </div>
             </div>
         </div>
-    </div>
-</aside>
+    </aside>
 
-<!-- ═══════════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════════
      MAIN WRAPPER (offset for sidebar on desktop)
      ═══════════════════════════════════════════════════════════════ -->
-<div class="main-wrapper">
+    <div class="main-wrapper">
 
-    <!-- Navbar -->
-    <header class="navbar">
-        <button class="navbar-burger" onclick="toggleSidebar()" aria-label="Toggle menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
-        </button>
-        <span class="navbar-title">Results Dashboard</span>
-        <div class="navbar-right">
-            <span class="navbar-badge">Level 6</span>
-        </div>
-    </header>
+        <!-- Navbar -->
+        <header class="navbar">
+            <button class="navbar-burger" onclick="toggleSidebar()" aria-label="Toggle menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            <span class="navbar-title">Results Dashboard</span>
+            <div class="navbar-right">
+                <span class="navbar-badge">Level 6</span>
+            </div>
+        </header>
 
-    <!-- Content -->
-    <main class="main">
+        <!-- Content -->
+        <main class="main">
 
-        <!-- ── Stats Cards ──────────────────────────────────────── -->
-        <section class="stats-grid" id="statsGrid">
-            <div class="stat-card">
-                <div class="stat-icon blue">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+            <!-- ── Stats Cards ──────────────────────────────────────── -->
+            <section class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Students</div>
+                        <div class="stat-value" id="statTotal">—</div>
+                    </div>
                 </div>
-                <div class="stat-info">
-                    <div class="stat-label">Total Students</div>
-                    <div class="stat-value" id="statTotal">—</div>
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Class Average</div>
+                        <div class="stat-value" id="statAvg">—</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .982-3.172M8.25 7.5l.768-.768a3 3 0 0 1 4.243 0l.207.208a5.96 5.96 0 0 1 0 8.44l-.207.207a3 3 0 0 1-4.243 0L8.25 14.615" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Top Score</div>
+                        <div class="stat-value" id="statTop">—</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── Controls ─────────────────────────────────────────── -->
+            <div class="controls">
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                    <input id="searchInput" type="text" placeholder="Search students..." oninput="applyFilters()"
+                        autocomplete="off">
+                </div>
+                <select class="filter-select" id="classFilter" onchange="applyFilters()">
+                    <option value="all">All Classes</option>
+                </select>
+                <span class="count-badge" id="countBadge">—</span>
+            </div>
+
+            <!-- ── Table (desktop/tablet) ───────────────────────────── -->
+            <div class="table-card" id="tableCard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width:48px">#</th>
+                            <th scope="col" class="sortable" onclick="sort('name')" id="th-name">Name <span
+                                    class="sort-arrow"></span></th>
+                            <th scope="col" class="sortable" onclick="sort('score')" id="th-score">Score <span
+                                    class="sort-arrow"></span></th>
+                            <th scope="col" class="sortable" onclick="sort('cls')" id="th-cls">Class <span
+                                    class="sort-arrow"></span></th>
+                            <th scope="col">Parent / Guardian</th>
+                            <th scope="col">Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody"></tbody>
+                </table>
+                <!-- Loading skeleton -->
+                <div id="skeleton">
+                    <div class="skeleton-row">
+                        <div class="skeleton sk-name sk"></div>
+                        <div class="skeleton sk-name sk"></div>
+                        <div class="skeleton sk-score sk"></div>
+                        <div class="skeleton sk-class sk"></div>
+                        <div class="skeleton sk-parent sk"></div>
+                        <div class="skeleton sk-btn sk"></div>
+                    </div>
+                    <div class="skeleton-row">
+                        <div class="skeleton sk-name sk"></div>
+                        <div class="skeleton sk-name sk"></div>
+                        <div class="skeleton sk-score sk"></div>
+                        <div class="skeleton sk-class sk"></div>
+                        <div class="skeleton sk-parent sk"></div>
+                        <div class="skeleton sk-btn sk"></div>
+                    </div>
+                    <div class="skeleton-row">
+                        <div class="skeleton sk-name sk"></div>
+                        <div class="skeleton sk-name sk"></div>
+                        <div class="skeleton sk-score sk"></div>
+                        <div class="skeleton sk-class sk"></div>
+                        <div class="skeleton sk-parent sk"></div>
+                        <div class="skeleton sk-btn sk"></div>
+                    </div>
+                </div>
+                <!-- Empty state -->
+                <div class="empty-state hidden" id="emptyState">
+                    <div class="empty-icon">🔍</div>
+                    <h3>No students found</h3>
+                    <p>Try adjusting your search or filter criteria.</p>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon green">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
-                </div>
-                <div class="stat-info">
-                    <div class="stat-label">Class Average</div>
-                    <div class="stat-value" id="statAvg">—</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon orange">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .982-3.172M8.25 7.5l.768-.768a3 3 0 0 1 4.243 0l.207.208a5.96 5.96 0 0 1 0 8.44l-.207.207a3 3 0 0 1-4.243 0L8.25 14.615"/></svg>
-                </div>
-                <div class="stat-info">
-                    <div class="stat-label">Top Score</div>
-                    <div class="stat-value" id="statTop">—</div>
+
+            <!-- ── Mobile Cards ─────────────────────────────────────── -->
+            <div class="cards-list" id="cardsList">
+                <div class="empty-state hidden" id="emptyStateCards">
+                    <div class="empty-icon">🔍</div>
+                    <h3>No students found</h3>
+                    <p>Try adjusting your search or filter.</p>
                 </div>
             </div>
-        </section>
 
-        <!-- ── Controls ─────────────────────────────────────────── -->
-        <div class="controls">
-            <div class="search-box">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
-                <input id="searchInput" type="text" placeholder="Search students..." oninput="applyFilters()" autocomplete="off">
-            </div>
-            <select class="filter-select" id="classFilter" onchange="applyFilters()">
-                <option value="all">All Classes</option>
-            </select>
-            <span class="count-badge" id="countBadge">—</span>
-        </div>
+            <!-- ── Instructor ───────────────────────────────────────── -->
+            <section class="instructor-card">
+                <div class="instructor-avatar">G</div>
+                <div class="instructor-info">
+                    <h3>Gwargios Mouris Amin</h3>
+                    <p>Software Engineer · Instructor</p>
+                    <a class="wa-btn" href="https://wa.me/201278728387" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                        </svg>
+                        Contact on WhatsApp
+                    </a>
+                </div>
+            </section>
 
-        <!-- ── Table (desktop/tablet) ───────────────────────────── -->
-        <div class="table-card" id="tableCard">
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col" style="width:48px">#</th>
-                        <th scope="col" class="sortable" onclick="sort('name')"  id="th-name" >Name  <span class="sort-arrow"></span></th>
-                        <th scope="col" class="sortable" onclick="sort('score')" id="th-score">Score <span class="sort-arrow"></span></th>
-                        <th scope="col" class="sortable" onclick="sort('cls')"   id="th-cls"  >Class <span class="sort-arrow"></span></th>
-                        <th scope="col">Parent / Guardian</th>
-                        <th scope="col">Contact</th>
-                    </tr>
-                </thead>
-                <tbody id="tBody"></tbody>
-            </table>
-            <!-- Loading skeleton -->
-            <div id="skeleton">
-                <div class="skeleton-row"><div class="skeleton sk-name sk"></div><div class="skeleton sk-name sk"></div><div class="skeleton sk-score sk"></div><div class="skeleton sk-class sk"></div><div class="skeleton sk-parent sk"></div><div class="skeleton sk-btn sk"></div></div>
-                <div class="skeleton-row"><div class="skeleton sk-name sk"></div><div class="skeleton sk-name sk"></div><div class="skeleton sk-score sk"></div><div class="skeleton sk-class sk"></div><div class="skeleton sk-parent sk"></div><div class="skeleton sk-btn sk"></div></div>
-                <div class="skeleton-row"><div class="skeleton sk-name sk"></div><div class="skeleton sk-name sk"></div><div class="skeleton sk-score sk"></div><div class="skeleton sk-class sk"></div><div class="skeleton sk-parent sk"></div><div class="skeleton sk-btn sk"></div></div>
-            </div>
-            <!-- Empty state -->
-            <div class="empty-state hidden" id="emptyState">
-                <div class="empty-icon">🔍</div>
-                <h3>No students found</h3>
-                <p>Try adjusting your search or filter criteria.</p>
-            </div>
-        </div>
+        </main>
+    </div>
 
-        <!-- ── Mobile Cards ─────────────────────────────────────── -->
-        <div class="cards-list" id="cardsList">
-            <div class="empty-state hidden" id="emptyStateCards">
-                <div class="empty-icon">🔍</div>
-                <h3>No students found</h3>
-                <p>Try adjusting your search or filter.</p>
-            </div>
-        </div>
-
-        <!-- ── Instructor ───────────────────────────────────────── -->
-        <section class="instructor-card">
-            <div class="instructor-avatar">G</div>
-            <div class="instructor-info">
-                <h3>Gwargios Mouris Amin</h3>
-                <p>Software Engineer · Instructor</p>
-                <a class="wa-btn" href="https://wa.me/201278728387" target="_blank" rel="noopener">
-                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Contact on WhatsApp
-                </a>
-            </div>
-        </section>
-
-    </main>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════════════════
      JAVASCRIPT — Data, rendering, search, sort, filter
      ═══════════════════════════════════════════════════════════════ -->
-<script>
-/* ── Student Data ────────────────────────────────────────────── */
-const students = [
-    { name:"Kirolos Samir", score:76, cls:6, guardian:"Samir Iskander", phone:"201280674100" },
-    { name:"Veronia Malak", score:77, cls:6, guardian:"Raheal",         phone:"201276109384" },
-    { name:"Mariam Esam",   score:70, cls:6, guardian:"Maisa Adel",     phone:"201287715455" },
-    { name:"Elaria Magdy",  score:74, cls:6, guardian:"Kristin Magdy",  phone:"201288328216" },
-    { name:"Youana Sameh",  score:67, cls:6, guardian:"Sameh Soliman",  phone:"201280838321" },
-    { name:"Marvy Mina",    score:60, cls:6, guardian:"Mary Morcos",    phone:"201550455190" },
-    { name:"Elina Emad",    score:71, cls:6, guardian:"Marian Wageh",   phone:"201207921261" },
-    { name:"Youana Hany",   score:71, cls:4, guardian:"Roaz",           phone:"201276161357" },
-    { name:"Shenoda Mena",  score:68, cls:5, guardian:null,             phone:null },
-    { name:"Yousef Wael",   score:68, cls:6, guardian:"Tahany",         phone:"201289935984" },
-    { name:"Kiria Samir",   score:78, cls:4, guardian:"Samir Iskander", phone:"201280674100" },
-    { name:"Karas Hany",    score:77, cls:5, guardian:null,             phone:null },
-    { name:"Fady Karam",    score:79, cls:4, guardian:"Kirolos Karam",  phone:"201202569591" },
-];
+    <script>
+        /* ── Student Data ────────────────────────────────────────────── */
+        const students = [
+            { name: "Kirolos Samir", score: 76, cls: 6, guardian: "Samir Iskander", phone: "201280674100" },
+            { name: "Veronia Malak", score: 77, cls: 6, guardian: "Raheal", phone: "201276109384" },
+            { name: "Mariam Esam", score: 70, cls: 6, guardian: "Maisa Adel", phone: "201287715455" },
+            { name: "Elaria Magdy", score: 74, cls: 6, guardian: "Kristin Magdy", phone: "201288328216" },
+            { name: "Youana Sameh", score: 67, cls: 6, guardian: "Sameh Soliman", phone: "201280838321" },
+            { name: "Marvy Mina", score: 60, cls: 6, guardian: "Mary Morcos", phone: "201550455190" },
+            { name: "Elina Emad", score: 71, cls: 6, guardian: "Marian Wageh", phone: "201207921261" },
+            { name: "Youana Hany", score: 71, cls: 4, guardian: "Roaz", phone: "201276161357" },
+            { name:"Shenoda Mena",  score:68, cls:5, guardian:"Mina Yousef",    phone:"201274291696" },
+            { name:"Yousef Wael",   score:68, cls:6, guardian:"Tahany",         phone:"201289935984" },
+            { name:"Kiria Samir",   score:78, cls:4, guardian:"Samir Iskander", phone:"201280674100" },
+            { name:"Karas Hany",    score:77, cls:5, guardian:"Kirolos Hany",   phone:"201279209773" },
+            { name: "Fady Karam", score: 79, cls: 4, guardian: "Kirolos Karam", phone: "201202569591" },
+        ];
 
-/* ── Helpers ─────────────────────────────────────────────────── */
-const WA_ICON = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>`;
+        /* ── Helpers ─────────────────────────────────────────────────── */
+        const WA_ICON = `<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>`;
 
-function scoreLevel(s) { return s >= 75 ? 'high' : s >= 60 ? 'mid' : 'low'; }
+        function scoreLevel(s) { return s >= 75 ? 'high' : s >= 60 ? 'mid' : 'low'; }
 
-function waButton(phone) {
-    if (!phone) return '<span class="no-data">—</span>';
-    return `<a class="wa-btn" href="https://wa.me/${phone}" target="_blank" rel="noopener">${WA_ICON} Contact</a>`;
-}
+        const COPY_ICON = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9.75a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"/></svg>`;
 
-/* ── State ───────────────────────────────────────────────────── */
-let sortKey = 'score', sortAsc = false; // default: score descending
-let filtered = [...students];
+        function copyPhone(phone, btn) {
+            const display = phone.replace(/^20/, '0');
+            navigator.clipboard.writeText(display).then(() => {
+                btn.innerHTML = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.innerHTML = COPY_ICON + ' Copy'; btn.classList.remove('copied'); }, 1500);
+            });
+        }
 
-/* ── Stats ───────────────────────────────────────────────────── */
-function updateStats() {
-    const n = students.length;
-    document.getElementById('statTotal').textContent = n;
-    document.getElementById('statAvg').textContent = (students.reduce((a,s) => a+s.score, 0) / n).toFixed(1);
-    document.getElementById('statTop').textContent = Math.max(...students.map(s => s.score));
-}
+        function waButton(phone) {
+            if (!phone) return '<span class="no-data">—</span>';
+            const display = phone.replace(/^20/, '0');
+            return `<div class="contact-actions">`
+                 + `<a class="wa-btn" href="https://wa.me/${phone}" target="_blank" rel="noopener">${WA_ICON} Contact</a>`
+                 + `<button class="copy-btn" onclick="copyPhone('${phone}', this)">${COPY_ICON} Copy</button>`
+                 + `</div>`;
+        }
 
-/* ── Populate class filter dropdown ──────────────────────────── */
-function initClassFilter() {
-    const classes = [...new Set(students.map(s => s.cls))].sort();
-    const sel = document.getElementById('classFilter');
-    classes.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c; opt.textContent = 'Class ' + c;
-        sel.appendChild(opt);
-    });
-}
+        /* ── State ───────────────────────────────────────────────────── */
+        let sortKey = 'score', sortAsc = false; // default: score descending
+        let filtered = [...students];
 
-/* ── Render Table ────────────────────────────────────────────── */
-function renderTable(data) {
-    const tbody = document.getElementById('tBody');
-    const empty = document.getElementById('emptyState');
-    const skel  = document.getElementById('skeleton');
-    skel.classList.add('hidden');
+        /* ── Stats ───────────────────────────────────────────────────── */
+        function updateStats() {
+            const n = students.length;
+            document.getElementById('statTotal').textContent = n;
+            document.getElementById('statAvg').textContent = (students.reduce((a, s) => a + s.score, 0) / n).toFixed(1);
+            document.getElementById('statTop').textContent = Math.max(...students.map(s => s.score));
+        }
 
-    if (!data.length) { tbody.innerHTML = ''; empty.classList.remove('hidden'); return; }
-    empty.classList.add('hidden');
+        /* ── Populate class filter dropdown ──────────────────────────── */
+        function initClassFilter() {
+            const classes = [...new Set(students.map(s => s.cls))].sort();
+            const sel = document.getElementById('classFilter');
+            classes.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c; opt.textContent = 'Class ' + c;
+                sel.appendChild(opt);
+            });
+        }
 
-    tbody.innerHTML = data.map((s, i) => `
-        <tr class="fade-in" style="animation-delay:${i*30}ms">
-            <td><span class="student-rank">${i+1}</span></td>
+        /* ── Render Table ────────────────────────────────────────────── */
+        function renderTable(data) {
+            const tbody = document.getElementById('tBody');
+            const empty = document.getElementById('emptyState');
+            const skel = document.getElementById('skeleton');
+            skel.classList.add('hidden');
+
+            if (!data.length) { tbody.innerHTML = ''; empty.classList.remove('hidden'); return; }
+            empty.classList.add('hidden');
+
+            tbody.innerHTML = data.map((s, i) => `
+        <tr class="fade-in" style="animation-delay:${i * 30}ms">
+            <td><span class="student-rank">${i + 1}</span></td>
             <td><span class="student-name">${s.name}</span></td>
             <td><span class="score-badge ${scoreLevel(s.score)}">${s.score}</span></td>
             <td><span class="class-badge">${s.cls}</span></td>
             <td>${s.guardian || '<span class="no-data">—</span>'}</td>
             <td>${waButton(s.phone)}</td>
         </tr>`).join('');
-}
+        }
 
-/* ── Render Cards (mobile) ───────────────────────────────────── */
-function renderCards(data) {
-    const list  = document.getElementById('cardsList');
-    const empty = document.getElementById('emptyStateCards');
-    list.querySelectorAll('.student-card').forEach(c => c.remove());
+        /* ── Render Cards (mobile) ───────────────────────────────────── */
+        function renderCards(data) {
+            const list = document.getElementById('cardsList');
+            const empty = document.getElementById('emptyStateCards');
+            list.querySelectorAll('.student-card').forEach(c => c.remove());
 
-    if (!data.length) { empty.classList.remove('hidden'); return; }
-    empty.classList.add('hidden');
+            if (!data.length) { empty.classList.remove('hidden'); return; }
+            empty.classList.add('hidden');
 
-    data.forEach((s, i) => {
-        const card = document.createElement('div');
-        card.className = 'student-card fade-in';
-        card.style.animationDelay = `${i*40}ms`;
-        card.innerHTML = `
+            data.forEach((s, i) => {
+                const card = document.createElement('div');
+                card.className = 'student-card fade-in';
+                card.style.animationDelay = `${i * 40}ms`;
+                card.innerHTML = `
             <div class="card-header">
                 <span class="student-name">${s.name}</span>
                 <span class="score-badge ${scoreLevel(s.score)}">${s.score}</span>
@@ -257,71 +330,72 @@ function renderCards(data) {
                 <div class="card-field"><label>Guardian</label><span>${s.guardian || '<span class="no-data">—</span>'}</span></div>
             </div>
             <div class="card-actions">${waButton(s.phone)}</div>`;
-        list.appendChild(card);
-    });
-}
+                list.appendChild(card);
+            });
+        }
 
-/* ── Apply Search & Filter ───────────────────────────────────── */
-function applyFilters() {
-    const q   = document.getElementById('searchInput').value.toLowerCase().trim();
-    const cls = document.getElementById('classFilter').value;
+        /* ── Apply Search & Filter ───────────────────────────────────── */
+        function applyFilters() {
+            const q = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cls = document.getElementById('classFilter').value;
 
-    filtered = students.filter(s => {
-        const matchName  = s.name.toLowerCase().includes(q);
-        const matchClass = cls === 'all' || s.cls == cls;
-        return matchName && matchClass;
-    });
+            filtered = students.filter(s => {
+                const matchName = s.name.toLowerCase().includes(q);
+                const matchClass = cls === 'all' || s.cls == cls;
+                return matchName && matchClass;
+            });
 
-    applySort();
-    render();
-}
+            applySort();
+            render();
+        }
 
-/* ── Sort ─────────────────────────────────────────────────────── */
-function sort(key) {
-    if (sortKey === key) sortAsc = !sortAsc;
-    else { sortKey = key; sortAsc = key === 'name'; }
-    // update header classes
-    document.querySelectorAll('.sortable').forEach(th => th.classList.remove('asc','desc'));
-    const id = {name:'th-name',score:'th-score',cls:'th-cls'}[key];
-    document.getElementById(id).classList.add(sortAsc ? 'asc' : 'desc');
-    applySort();
-    render();
-}
+        /* ── Sort ─────────────────────────────────────────────────────── */
+        function sort(key) {
+            if (sortKey === key) sortAsc = !sortAsc;
+            else { sortKey = key; sortAsc = key === 'name'; }
+            // update header classes
+            document.querySelectorAll('.sortable').forEach(th => th.classList.remove('asc', 'desc'));
+            const id = { name: 'th-name', score: 'th-score', cls: 'th-cls' }[key];
+            document.getElementById(id).classList.add(sortAsc ? 'asc' : 'desc');
+            applySort();
+            render();
+        }
 
-function applySort() {
-    filtered.sort((a,b) => {
-        let va = a[sortKey], vb = b[sortKey];
-        if (typeof va === 'string') { va = va.toLowerCase(); vb = vb.toLowerCase(); }
-        return sortAsc ? (va < vb ? -1 : va > vb ? 1 : 0) : (va > vb ? -1 : va < vb ? 1 : 0);
-    });
-}
+        function applySort() {
+            filtered.sort((a, b) => {
+                let va = a[sortKey], vb = b[sortKey];
+                if (typeof va === 'string') { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+                return sortAsc ? (va < vb ? -1 : va > vb ? 1 : 0) : (va > vb ? -1 : va < vb ? 1 : 0);
+            });
+        }
 
-function render() {
-    renderTable(filtered);
-    renderCards(filtered);
-    document.getElementById('countBadge').textContent = `${filtered.length} of ${students.length}`;
-}
+        function render() {
+            renderTable(filtered);
+            renderCards(filtered);
+            document.getElementById('countBadge').textContent = `${filtered.length} of ${students.length}`;
+        }
 
-/* ── Sidebar Toggle ──────────────────────────────────────────── */
-function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarOverlay').classList.toggle('show');
-}
+        /* ── Sidebar Toggle ──────────────────────────────────────────── */
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('show');
+        }
 
-/* ── Loading Simulation ──────────────────────────────────────── */
-function init() {
-    // Show skeleton briefly then render
-    setTimeout(() => {
-        updateStats();
-        initClassFilter();
-        // Default sort: score desc
-        document.getElementById('th-score').classList.add('desc');
-        applySort();
-        render();
-    }, 600);
-}
+        /* ── Loading Simulation ──────────────────────────────────────── */
+        function init() {
+            // Show skeleton briefly then render
+            setTimeout(() => {
+                updateStats();
+                initClassFilter();
+                // Default sort: score desc
+                document.getElementById('th-score').classList.add('desc');
+                applySort();
+                render();
+            }, 600);
+        }
 
-init();
-</script>
+        init();
+    </script>
 </body>
+
 </html>

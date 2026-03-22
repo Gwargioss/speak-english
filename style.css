@@ -183,6 +183,23 @@ ul{list-style:none}
 
 .no-data{color:var(--gray-400);font-size:13px;font-style:italic}
 
+/* Contact actions container */
+.contact-actions{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
+
+/* Copy button */
+.copy-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:6px 12px;border-radius:var(--radius-sm);
+  background:var(--gray-100);color:var(--gray-600);
+  font-size:12px;font-weight:500;cursor:pointer;
+  border:1px solid var(--gray-200);
+  transition:all var(--transition);
+}
+.copy-btn:hover{background:var(--gray-200);color:var(--gray-800);border-color:var(--gray-300)}
+.copy-btn:active{transform:scale(.96)}
+.copy-btn.copied{background:var(--success-light);color:var(--success);border-color:var(--success-light)}
+.copy-btn svg{width:14px;height:14px;flex-shrink:0;display:inline}
+
 /* ── Empty / No Results ─────────────────────────────────────────── */
 .empty-state{text-align:center;padding:64px 24px;color:var(--gray-500)}
 .empty-state .empty-icon{font-size:48px;margin-bottom:16px}
