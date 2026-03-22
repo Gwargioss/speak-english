@@ -212,11 +212,13 @@
                             <div class="audio-artwork">
                                 <div class="artwork-bg-decor"></div>
                                 <div class="artwork-center-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                                     </svg>
                                 </div>
-                                <div class="artwork-label">AUDIO</div>
+                                <div class="artwork-label" id="lyrics1">AUDIO</div>
                                 <div class="floating-note n1">♪</div>
                                 <div class="floating-note n2">♫</div>
                                 <div class="floating-note n3">♪</div>
@@ -233,18 +235,26 @@
                             </div>
                             <div class="audio-actions">
                                 <button class="action-play" onclick="togglePlay(0)" id="playBtn1">
-                                    <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                                    <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
+                                            clip-rule="evenodd" />
                                     </svg>
-                                    <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
+                                    <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z"
+                                            clip-rule="evenodd" />
                                     </svg>
                                     <span class="action-label play-label">Play</span>
                                     <span class="action-label pause-label hidden">Pause</span>
                                 </button>
                                 <a class="action-download" href="Lord's Prayer.mp3" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                                     </svg>
                                     <span class="action-label">Download</span>
                                 </a>
@@ -258,11 +268,13 @@
                             <div class="audio-artwork artwork-alt">
                                 <div class="artwork-bg-decor"></div>
                                 <div class="artwork-center-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
                                     </svg>
                                 </div>
-                                <div class="artwork-label">AUDIO</div>
+                                <div class="artwork-label" id="lyrics2">AUDIO</div>
                                 <div class="floating-note n1">♪</div>
                                 <div class="floating-note n2">♫</div>
                                 <div class="floating-note n3">♪</div>
@@ -279,18 +291,26 @@
                             </div>
                             <div class="audio-actions">
                                 <button class="action-play" onclick="togglePlay(1)" id="playBtn2">
-                                    <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                                    <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
+                                            clip-rule="evenodd" />
                                     </svg>
-                                    <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
+                                    <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z"
+                                            clip-rule="evenodd" />
                                     </svg>
                                     <span class="action-label play-label">Play</span>
                                     <span class="action-label pause-label hidden">Pause</span>
                                 </button>
                                 <a class="action-download" href="The Trinitarian Formula.mp3" download>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                                     </svg>
                                     <span class="action-label">Download</span>
                                 </a>
@@ -334,10 +354,10 @@
             { name: "Marvy Mina", score: 60, cls: 6, guardian: "Mary Morcos", phone: "201550455190" },
             { name: "Elina Emad", score: 71, cls: 6, guardian: "Marian Wageh", phone: "201207921261" },
             { name: "Youana Hany", score: 71, cls: 4, guardian: "Roaz", phone: "201276161357" },
-            { name:"Shenoda Mena",  score:68, cls:5, guardian:"Mina Yousef",    phone:"201274291696" },
-            { name:"Yousef Wael",   score:68, cls:6, guardian:"Tahany",         phone:"201289935984" },
-            { name:"Kiria Samir",   score:78, cls:4, guardian:"Samir Iskander", phone:"201280674100" },
-            { name:"Karas Hany",    score:77, cls:5, guardian:"Kirolos Hany",   phone:"201279209773" },
+            { name: "Shenoda Mena", score: 68, cls: 5, guardian: "Mina Yousef", phone: "201274291696" },
+            { name: "Yousef Wael", score: 68, cls: 6, guardian: "Tahany", phone: "201289935984" },
+            { name: "Kiria Samir", score: 78, cls: 4, guardian: "Samir Iskander", phone: "201280674100" },
+            { name: "Karas Hany", score: 77, cls: 5, guardian: "Kirolos Hany", phone: "201279209773" },
             { name: "Fady Karam", score: 79, cls: 4, guardian: "Kirolos Karam", phone: "201202569591" },
         ];
 
@@ -361,9 +381,9 @@
             if (!phone) return '<span class="no-data">—</span>';
             const display = phone.replace(/^20/, '0');
             return `<div class="contact-actions">`
-                 + `<a class="wa-btn" href="https://wa.me/${phone}" target="_blank" rel="noopener">${WA_ICON} Contact</a>`
-                 + `<button class="copy-btn" onclick="copyPhone('${phone}', this)">${COPY_ICON} Copy</button>`
-                 + `</div>`;
+                + `<a class="wa-btn" href="https://wa.me/${phone}" target="_blank" rel="noopener">${WA_ICON} Contact</a>`
+                + `<button class="copy-btn" onclick="copyPhone('${phone}', this)">${COPY_ICON} Copy</button>`
+                + `</div>`;
         }
 
         /* ── State ───────────────────────────────────────────────────── */
@@ -553,12 +573,73 @@
             }
         }
 
+        // Lyrics Data
+        const lyricsData = [
+            // Lord's Prayer (approx 28s)
+            [
+                { t: 0, text: "The Lord's Prayer" },
+                { t: 0.8, text: "Our Father in heaven," },
+                { t: 3.0, text: "hallowed be Your name," },
+                { t: 4.8, text: "Your kingdom come," },
+                { t: 6.6, text: "Your will be done," },
+                { t: 8.3, text: "on earth as in heaven." },
+                { t: 10.8, text: "Give us today our daily bread." },
+                { t: 13.0, text: "Forgive us our sins" },
+                { t: 14.8, text: "as we forgive those who sin against us." },
+                { t: 17.5, text: "Lead us not into temptation" },
+                { t: 19.3, text: "but deliver us from evil." },
+                { t: 21.3, text: "For the kingdom, the power," },
+                { t: 23.5, text: "and the glory are Yours" },
+                { t: 25.0, text: "now and forever." },
+                { t: 26.2, text: "Amen." }
+            ],
+            // The Trinitarian Formula (approx 6s)
+            [
+                { t: 0, text: "In the name of the Father," },
+                { t: 1.2, text: "and of the Son," },
+                { t: 2.7, text: "and of the Holy Spirit," },
+                { t: 4.2, text: "one God. Amen" }
+            ]
+        ];
+
         function updateProgress(idx) {
             const audio = audioFiles[idx].el;
             const pct = (audio.currentTime / audio.duration) * 100;
             document.getElementById('progress' + (idx + 1)).style.width = pct + '%';
             document.getElementById('time' + (idx + 1)).textContent =
                 `${fmtTime(audio.currentTime)} / ${fmtTime(audio.duration)}`;
+
+            // Sync Lyrics
+            const time = audio.currentTime;
+            const lyrics = lyricsData[idx];
+            let activeText = "AUDIO";
+            let hasLyric = false;
+
+            for (let i = lyrics.length - 1; i >= 0; i--) {
+                if (time >= lyrics[i].t) {
+                    activeText = lyrics[i].text;
+                    hasLyric = true;
+                    break;
+                }
+            }
+
+            const labelEl = document.getElementById('lyrics' + (idx + 1));
+            const artworkEl = labelEl.closest('.audio-artwork');
+
+            if (activeText !== labelEl.textContent) {
+                // Remove animation class to reset it
+                labelEl.style.animation = 'none';
+                labelEl.offsetHeight; // Trigger reflow
+                labelEl.style.animation = null;
+                labelEl.textContent = activeText;
+            }
+
+            if (hasLyric && !audio.paused) {
+                artworkEl.classList.add('has-lyrics');
+            } else {
+                artworkEl.classList.remove('has-lyrics');
+                labelEl.textContent = "AUDIO";
+            }
         }
 
         function seekAudio(e, idx) {
@@ -566,6 +647,7 @@
             const rect = bar.getBoundingClientRect();
             const pct = (e.clientX - rect.left) / rect.width;
             audioFiles[idx].el.currentTime = pct * audioFiles[idx].el.duration;
+            updateProgress(idx); // immediately update lyrics/progress
         }
 
         function resetPlayer(idx) {
@@ -573,6 +655,10 @@
             document.getElementById('progress' + (idx + 1)).style.width = '0%';
             document.getElementById('time' + (idx + 1)).textContent =
                 `0:00 / ${fmtTime(audioFiles[idx].el.duration)}`;
+
+            // Reset lyrics
+            document.getElementById('lyrics' + (idx + 1)).textContent = "AUDIO";
+            document.getElementById('lyrics' + (idx + 1)).closest('.audio-artwork').classList.remove('has-lyrics');
         }
 
         function resetPlayerUI(idx) {
