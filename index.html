@@ -24,13 +24,21 @@
             <span>EduTrack</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="#" class="active">
+            <a href="#" class="active" onclick="switchTab('students', this, event)">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                 </svg>
                 Students
+            </a>
+            <a href="#" onclick="switchTab('content', this, event)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                </svg>
+                Content
             </a>
         </nav>
         <!-- Instructor mini-profile at bottom -->
@@ -59,7 +67,7 @@
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-            <span class="navbar-title">Students</span>
+            <span class="navbar-title" id="navTitle">Students</span>
             <div class="navbar-right">
                 <span class="navbar-badge">Level 6</span>
             </div>
@@ -189,6 +197,93 @@
                     <p>Try adjusting your search or filter.</p>
                 </div>
             </div>
+
+            <!-- ── Content Section (Audio) ─────────────────────────── -->
+            <section class="content-section hidden" id="contentSection">
+                <div class="content-header">
+                    <h2>Audio Content</h2>
+                    <p>Listen to or download the available audio materials</p>
+                </div>
+                <div class="audio-grid">
+
+                    <!-- Audio Card 1 -->
+                    <div class="audio-card" id="audioCard1">
+                        <div class="audio-card-visual">
+                            <div class="audio-artwork">
+                                <div class="artwork-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                                    </svg>
+                                </div>
+                                <canvas class="waveform" id="waveform1" width="240" height="60"></canvas>
+                            </div>
+                        </div>
+                        <div class="audio-card-body">
+                            <h3 class="audio-title">Lord's Prayer</h3>
+                            <p class="audio-subtitle">Audio Lesson</p>
+                            <div class="audio-player" id="player1">
+                                <button class="play-btn" onclick="togglePlay(0)" id="playBtn1">
+                                    <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <div class="progress-container" onclick="seekAudio(event, 0)">
+                                    <div class="progress-bar" id="progress1"></div>
+                                </div>
+                                <span class="audio-time" id="time1">0:00 / 0:00</span>
+                            </div>
+                            <a class="download-btn" href="Lord's Prayer.mp3" download>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                </svg>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 2 -->
+                    <div class="audio-card" id="audioCard2">
+                        <div class="audio-card-visual">
+                            <div class="audio-artwork">
+                                <div class="artwork-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                                    </svg>
+                                </div>
+                                <canvas class="waveform" id="waveform2" width="240" height="60"></canvas>
+                            </div>
+                        </div>
+                        <div class="audio-card-body">
+                            <h3 class="audio-title">The Trinitarian Formula</h3>
+                            <p class="audio-subtitle">Audio Lesson</p>
+                            <div class="audio-player" id="player2">
+                                <button class="play-btn" onclick="togglePlay(1)" id="playBtn2">
+                                    <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg class="icon-pause hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <div class="progress-container" onclick="seekAudio(event, 1)">
+                                    <div class="progress-bar" id="progress2"></div>
+                                </div>
+                                <span class="audio-time" id="time2">0:00 / 0:00</span>
+                            </div>
+                            <a class="download-btn" href="The Trinitarian Formula.mp3" download>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                </svg>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
 
             <!-- ── Instructor ───────────────────────────────────────── -->
             <section class="instructor-card">
@@ -387,6 +482,146 @@
         }
 
         init();
+
+        /* ═══════════════════════════════════════════════════════════════
+         AUDIO PLAYER & TAB SWITCHING
+         ═══════════════════════════════════════════════════════════════ */
+
+        /* ── Audio Elements ─────────────────────────────────────────── */
+        const audioFiles = [
+            { src: "Lord's Prayer.mp3", el: null },
+            { src: "The Trinitarian Formula.mp3", el: null }
+        ];
+        audioFiles.forEach((af, i) => {
+            af.el = new Audio(af.src);
+            af.el.preload = 'metadata';
+            af.el.addEventListener('timeupdate', () => updateProgress(i));
+            af.el.addEventListener('ended', () => resetPlayer(i));
+            af.el.addEventListener('loadedmetadata', () => {
+                document.getElementById('time' + (i + 1)).textContent =
+                    `0:00 / ${fmtTime(af.el.duration)}`;
+            });
+        });
+
+        function fmtTime(sec) {
+            if (!sec || isNaN(sec)) return '0:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function togglePlay(idx) {
+            const audio = audioFiles[idx].el;
+            const btn = document.getElementById('playBtn' + (idx + 1));
+            // Pause all other players
+            audioFiles.forEach((af, i) => {
+                if (i !== idx && !af.el.paused) {
+                    af.el.pause();
+                    resetPlayerUI(i);
+                }
+            });
+            if (audio.paused) {
+                audio.play();
+                btn.querySelector('.icon-play').classList.add('hidden');
+                btn.querySelector('.icon-pause').classList.remove('hidden');
+                btn.classList.add('playing');
+            } else {
+                audio.pause();
+                btn.querySelector('.icon-play').classList.remove('hidden');
+                btn.querySelector('.icon-pause').classList.add('hidden');
+                btn.classList.remove('playing');
+            }
+        }
+
+        function updateProgress(idx) {
+            const audio = audioFiles[idx].el;
+            const pct = (audio.currentTime / audio.duration) * 100;
+            document.getElementById('progress' + (idx + 1)).style.width = pct + '%';
+            document.getElementById('time' + (idx + 1)).textContent =
+                `${fmtTime(audio.currentTime)} / ${fmtTime(audio.duration)}`;
+        }
+
+        function seekAudio(e, idx) {
+            const bar = e.currentTarget;
+            const rect = bar.getBoundingClientRect();
+            const pct = (e.clientX - rect.left) / rect.width;
+            audioFiles[idx].el.currentTime = pct * audioFiles[idx].el.duration;
+        }
+
+        function resetPlayer(idx) {
+            resetPlayerUI(idx);
+            document.getElementById('progress' + (idx + 1)).style.width = '0%';
+            document.getElementById('time' + (idx + 1)).textContent =
+                `0:00 / ${fmtTime(audioFiles[idx].el.duration)}`;
+        }
+
+        function resetPlayerUI(idx) {
+            const btn = document.getElementById('playBtn' + (idx + 1));
+            btn.querySelector('.icon-play').classList.remove('hidden');
+            btn.querySelector('.icon-pause').classList.add('hidden');
+            btn.classList.remove('playing');
+        }
+
+        /* ── Waveform Drawing ───────────────────────────────────────── */
+        function drawWaveform(canvasId, color1, color2) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width, h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+            const bars = 40;
+            const gap = 2;
+            const barW = (w - (bars - 1) * gap) / bars;
+            const gradient = ctx.createLinearGradient(0, 0, w, 0);
+            gradient.addColorStop(0, color1);
+            gradient.addColorStop(1, color2);
+            ctx.fillStyle = gradient;
+            for (let i = 0; i < bars; i++) {
+                const barH = Math.random() * (h * 0.7) + h * 0.15;
+                const x = i * (barW + gap);
+                const y = (h - barH) / 2;
+                ctx.beginPath();
+                ctx.roundRect(x, y, barW, barH, 2);
+                ctx.fill();
+            }
+        }
+        drawWaveform('waveform1', '#6366f1', '#a78bfa');
+        drawWaveform('waveform2', '#6366f1', '#a78bfa');
+
+        /* ── Tab Switching ──────────────────────────────────────────── */
+        function switchTab(tab, linkEl, e) {
+            e.preventDefault();
+            // Update sidebar active state
+            document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+            linkEl.classList.add('active');
+            // Update navbar title
+            document.getElementById('navTitle').textContent = tab === 'students' ? 'Students' : 'Content';
+
+            const studentsEls = ['statsGrid', 'tableCard', 'cardsList'];
+            const controlsEl = document.querySelector('.controls');
+            const contentEl = document.getElementById('contentSection');
+
+            if (tab === 'students') {
+                studentsEls.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.classList.remove('hidden');
+                });
+                if (controlsEl) controlsEl.classList.remove('hidden');
+                contentEl.classList.add('hidden');
+                // Pause all audio when switching away
+                audioFiles.forEach((af, i) => { af.el.pause(); resetPlayerUI(i); });
+            } else {
+                studentsEls.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.classList.add('hidden');
+                });
+                if (controlsEl) controlsEl.classList.add('hidden');
+                contentEl.classList.remove('hidden');
+            }
+            // Close mobile sidebar
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('show');
+        }
     </script>
 </body>
 
