@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level 6 - Students Results</title>
+    <meta name="description" content="Student results for Level 6 English class taught by SWE Gwargios Mouris Amin.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +16,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 40px 20px;
             min-height: 100vh;
@@ -31,15 +35,66 @@
             text-align: center;
             color: #667eea;
             font-size: 48px;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 700;
         }
 
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Search Bar */
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 12px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        #searchInput:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+        }
+
+        #searchInput::placeholder {
+            color: #aaa;
+        }
+
+        #studentCount {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Table */
         .table-wrapper {
             overflow-x: auto;
             margin-bottom: 40px;
             -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
         }
 
         table {
@@ -60,58 +115,105 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 14px;
+            font-size: 13px;
+            user-select: none;
         }
+
+        th.sortable {
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        th.sortable:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        th .sort-icon {
+            display: inline-block;
+            margin-left: 6px;
+            opacity: 0.5;
+            font-style: normal;
+        }
+
+        th.asc .sort-icon::after { content: ' ↑'; opacity: 1; }
+        th.desc .sort-icon::after { content: ' ↓'; opacity: 1; }
+        th:not(.asc):not(.desc) .sort-icon::after { content: ' ↕'; }
 
         td {
             padding: 16px 12px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        tbody tr:hover {
-            background-color: #f5f5f5;
-            transform: scale(1.01);
-            transition: all 0.2s ease;
+        tbody tr:last-child td {
+            border-bottom: none;
         }
 
         tbody tr {
             transition: all 0.2s ease;
         }
 
-        .score {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 18px;
+        tbody tr:hover {
+            background-color: #f7f5ff;
+            transform: scale(1.005);
         }
 
+        .score {
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .score.high { color: #2ecc71; }
+        .score.mid  { color: #f39c12; }
+        .score.low  { color: #e74c3c; }
+
         .class-badge {
-            background: #764ba2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 4px 12px;
             border-radius: 12px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        a {
+        /* WhatsApp Link */
+        a.wa-link {
             color: #25D366;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
-        a:hover {
+        a.wa-link:hover {
             color: #128C7E;
             transform: scale(1.05);
         }
 
-        a::before {
-            content: "📱";
+        a.wa-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
 
+        .no-link {
+            color: #bbb;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        /* No results row */
+        #noResults {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        /* Instructor Section */
         .instructor {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 30px;
@@ -123,6 +225,7 @@
         .instructor h2 {
             margin-bottom: 15px;
             font-size: 24px;
+            font-weight: 700;
         }
 
         .instructor p {
@@ -130,13 +233,13 @@
             margin: 8px 0;
         }
 
-        .instructor a {
+        .instructor a.wa-link {
             color: #FFD700;
             font-size: 20px;
             font-weight: bold;
         }
 
-        .instructor a:hover {
+        .instructor a.wa-link:hover {
             color: #FFF;
         }
 
@@ -147,265 +250,72 @@
             margin: 40px 0;
         }
 
-        /* Responsive Design for Mobile and Tablets */
+        /* Responsive */
         @media screen and (max-width: 768px) {
-            body {
-                padding: 20px 10px;
-            }
-
-            .container {
-                padding: 20px 15px;
-                border-radius: 15px;
-            }
-
-            h1 {
-                font-size: 28px;
-                margin-bottom: 25px;
-                letter-spacing: 1px;
-            }
-
-            table {
-                font-size: 14px;
-                min-width: 600px;
-            }
-
-            th {
-                padding: 12px 8px;
-                font-size: 12px;
-            }
-
-            td {
-                padding: 12px 8px;
-            }
-
-            .score {
-                font-size: 16px;
-            }
-
-            .class-badge {
-                padding: 3px 10px;
-                font-size: 12px;
-            }
-
-            .instructor {
-                padding: 20px 15px;
-            }
-
-            .instructor h2 {
-                font-size: 20px;
-                margin-bottom: 12px;
-            }
-
-            .instructor p {
-                font-size: 16px;
-            }
-
-            .instructor a {
-                font-size: 16px;
-            }
-
-            hr {
-                margin: 30px 0;
-            }
+            body { padding: 20px 10px; }
+            .container { padding: 20px 15px; border-radius: 15px; }
+            h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: 1px; }
+            table { font-size: 14px; min-width: 600px; }
+            th { padding: 12px 8px; font-size: 11px; }
+            td { padding: 12px 8px; }
+            .score { font-size: 15px; }
+            .class-badge { padding: 3px 10px; font-size: 12px; }
+            .instructor { padding: 20px 15px; }
+            .instructor h2 { font-size: 20px; margin-bottom: 12px; }
+            .instructor p { font-size: 16px; }
+            .instructor a.wa-link { font-size: 16px; }
+            hr { margin: 30px 0; }
         }
 
         @media screen and (max-width: 480px) {
-            body {
-                padding: 15px 5px;
-            }
-
-            .container {
-                padding: 15px 10px;
-                border-radius: 10px;
-            }
-
-            h1 {
-                font-size: 22px;
-                margin-bottom: 20px;
-            }
-
-            table {
-                font-size: 12px;
-                min-width: 550px;
-            }
-
-            th {
-                padding: 10px 6px;
-                font-size: 11px;
-            }
-
-            td {
-                padding: 10px 6px;
-            }
-
-            .score {
-                font-size: 14px;
-            }
-
-            .class-badge {
-                padding: 2px 8px;
-                font-size: 11px;
-            }
-
-            a {
-                font-size: 12px;
-            }
-
-            .instructor {
-                padding: 15px 10px;
-            }
-
-            .instructor h2 {
-                font-size: 18px;
-            }
-
-            .instructor p {
-                font-size: 14px;
-            }
-
-            .instructor a {
-                font-size: 14px;
-            }
+            body { padding: 15px 5px; }
+            .container { padding: 15px 10px; border-radius: 10px; }
+            h1 { font-size: 22px; margin-bottom: 20px; }
+            table { font-size: 12px; min-width: 550px; }
+            th { padding: 10px 6px; font-size: 10px; }
+            td { padding: 10px 6px; }
+            .score { font-size: 13px; }
+            .class-badge { padding: 2px 8px; font-size: 10px; }
+            a.wa-link { font-size: 12px; }
+            .instructor { padding: 15px 10px; }
+            .instructor h2 { font-size: 18px; }
+            .instructor p { font-size: 14px; }
+            .instructor a.wa-link { font-size: 14px; }
         }
 
         @media screen and (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 30px;
-            }
-
-            h1 {
-                font-size: 38px;
-            }
-
-            table {
-                font-size: 15px;
-            }
+            .container { padding: 30px; }
+            h1 { font-size: 38px; }
+            table { font-size: 15px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📚 Level 6</h1>
+        <p class="subtitle">Student Results — Academic Session 2025/2026</p>
+
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" placeholder="🔍  Search by student name..." oninput="filterTable()">
+            <span id="studentCount"></span>
+        </div>
 
         <div class="table-wrapper">
-            <table>
+            <table id="studentsTable">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Student Name</th>
-                        <th>Score</th>
-                        <th>Class</th>
-                        <th>Parent/Guardian</th>
-                        <th>Phone Number</th>
+                        <th scope="col">#</th>
+                        <th scope="col" class="sortable" onclick="sortTable(1)" id="col-name"    >Student Name <span class="sort-icon"></span></th>
+                        <th scope="col" class="sortable" onclick="sortTable(2)" id="col-score"   >Score <span class="sort-icon"></span></th>
+                        <th scope="col" class="sortable" onclick="sortTable(3)" id="col-class"   >Class <span class="sort-icon"></span></th>
+                        <th scope="col">Parent/Guardian</th>
+                        <th scope="col">WhatsApp</th>
                     </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Kirolos Samir</td>
-                    <td class="score">76</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Samir Iskander</td>
-                    <td><a href="https://wa.me/201280674100">01280674100</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Veronia Malak</td>
-                    <td class="score">77</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Raheal</td>
-                    <td><a href="https://wa.me/201276109384">01276109384</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Mariam Esam</td>
-                    <td class="score">70</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Maisa Adel</td>
-                    <td><a href="https://wa.me/201287715455">01287715455</a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Elaria Magdy</td>
-                    <td class="score">74</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Kristin Magdy</td>
-                    <td><a href="https://wa.me/201288328216">01288328216</a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Youana Sameh</td>
-                    <td class="score">67</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Sameh Soliman</td>
-                    <td><a href="https://wa.me/201280838321">01280838321</a></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Marvy Mina</td>
-                    <td class="score">60</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Mary Morcos</td>
-                    <td><a href="https://wa.me/201550455190">01550455190</a></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Elina Emad</td>
-                    <td class="score">71</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Marian Wageh</td>
-                    <td><a href="https://wa.me/201207921261">01207921261</a></td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Youana Hany</td>
-                    <td class="score">71</td>
-                    <td><span class="class-badge">4</span></td>
-                    <td>Roaz</td>
-                    <td><a href="https://wa.me/201276161357">01276161357</a></td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Shenoda Mena</td>
-                    <td class="score">68</td>
-                    <td><span class="class-badge">5</span></td>
-                    <td>(Guardian)</td>
-                    <td>00000000000</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Yousef Wael</td>
-                    <td class="score">68</td>
-                    <td><span class="class-badge">6</span></td>
-                    <td>Tahany</td>
-                    <td><a href="https://wa.me/201289935984">01289935984</a></td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>Kiria Samir</td>
-                    <td class="score">78</td>
-                    <td><span class="class-badge">4</span></td>
-                    <td>Samir Iskander</td>
-                    <td><a href="https://wa.me/201280674100">01280674100</a></td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>Karas Hany</td>
-                    <td class="score">77</td>
-                    <td><span class="class-badge">5</span></td>
-                    <td>(Guardian)</td>
-                    <td>00000000000</td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>Fady Karam</td>
-                    <td class="score">79</td>
-                    <td><span class="class-badge">4</span></td>
-                    <td>Kirolos Karam</td>
-                    <td><a href="https://wa.me/201202569591">01202569591</a></td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            <p id="noResults">😕 No students found matching your search.</p>
         </div>
 
         <hr>
@@ -413,8 +323,113 @@
         <div class="instructor">
             <h2>👨‍💻 Instructor</h2>
             <p><strong>SWE:</strong> Gwargios Mouris Amin</p>
-            <p><strong>Phone & WhatsApp:</strong> <a href="https://wa.me/201278728387">01278728387</a></p>
+            <p><strong>Phone &amp; WhatsApp:</strong>
+                <a class="wa-link" href="https://wa.me/201278728387" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    01278728387
+                </a>
+            </p>
         </div>
     </div>
+
+    <script>
+        // ── Data ──────────────────────────────────────────────────────────────
+        const students = [
+            { name: "Kirolos Samir",  score: 76, cls: 6, guardian: "Samir Iskander",  phone: "201280674100" },
+            { name: "Veronia Malak",  score: 77, cls: 6, guardian: "Raheal",           phone: "201276109384" },
+            { name: "Mariam Esam",    score: 70, cls: 6, guardian: "Maisa Adel",       phone: "201287715455" },
+            { name: "Elaria Magdy",   score: 74, cls: 6, guardian: "Kristin Magdy",    phone: "201288328216" },
+            { name: "Youana Sameh",   score: 67, cls: 6, guardian: "Sameh Soliman",    phone: "201280838321" },
+            { name: "Marvy Mina",     score: 60, cls: 6, guardian: "Mary Morcos",      phone: "201550455190" },
+            { name: "Elina Emad",     score: 71, cls: 6, guardian: "Marian Wageh",     phone: "201207921261" },
+            { name: "Youana Hany",    score: 71, cls: 4, guardian: "Roaz",             phone: "201276161357" },
+            { name: "Shenoda Mena",   score: 68, cls: 5, guardian: null,               phone: null           },
+            { name: "Yousef Wael",    score: 68, cls: 6, guardian: "Tahany",           phone: "201289935984" },
+            { name: "Kiria Samir",    score: 78, cls: 4, guardian: "Samir Iskander",   phone: "201280674100" },
+            { name: "Karas Hany",     score: 77, cls: 5, guardian: null,               phone: null           },
+            { name: "Fady Karam",     score: 79, cls: 4, guardian: "Kirolos Karam",    phone: "201202569591" },
+        ];
+
+        // WhatsApp SVG icon (inline, reused)
+        const waSVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>`;
+
+        // ── Render ────────────────────────────────────────────────────────────
+        let currentData = [...students];
+        let sortState   = { col: -1, asc: true };
+
+        function scoreClass(s) {
+            if (s >= 75) return 'high';
+            if (s >= 65) return 'mid';
+            return 'low';
+        }
+
+        function render(data) {
+            const tbody = document.getElementById('tableBody');
+            if (data.length === 0) {
+                tbody.innerHTML = '';
+                document.getElementById('noResults').style.display = 'block';
+            } else {
+                document.getElementById('noResults').style.display = 'none';
+                tbody.innerHTML = data.map((s, i) => `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${s.name}</td>
+                        <td class="score ${scoreClass(s.score)}">${s.score}</td>
+                        <td><span class="class-badge">${s.cls}</span></td>
+                        <td>${s.guardian || '<span class="no-link">—</span>'}</td>
+                        <td>${s.phone
+                            ? `<a class="wa-link" href="https://wa.me/${s.phone}" target="_blank" rel="noopener">${waSVG} ${s.phone.replace(/^20/, '0')}</a>`
+                            : '<span class="no-link">N/A</span>'
+                        }</td>
+                    </tr>`).join('');
+            }
+            document.getElementById('studentCount').textContent =
+                `${data.length} / ${students.length} student${students.length !== 1 ? 's' : ''}`;
+        }
+
+        // ── Search ────────────────────────────────────────────────────────────
+        function filterTable() {
+            const q = document.getElementById('searchInput').value.toLowerCase().trim();
+            currentData = students.filter(s => s.name.toLowerCase().includes(q));
+            if (sortState.col !== -1) applySortToCurrentData();
+            render(currentData);
+        }
+
+        // ── Sort ──────────────────────────────────────────────────────────────
+        const colMap = { 1: 'name', 2: 'score', 3: 'cls' };
+
+        function sortTable(col) {
+            if (sortState.col === col) {
+                sortState.asc = !sortState.asc;
+            } else {
+                sortState.col = col;
+                sortState.asc = true;
+            }
+            // Update header icons
+            document.querySelectorAll('th.sortable').forEach(th => {
+                th.classList.remove('asc', 'desc');
+            });
+            const ids = { 1: 'col-name', 2: 'col-score', 3: 'col-class' };
+            const activeHeader = document.getElementById(ids[col]);
+            activeHeader.classList.add(sortState.asc ? 'asc' : 'desc');
+
+            applySortToCurrentData();
+            render(currentData);
+        }
+
+        function applySortToCurrentData() {
+            const key = colMap[sortState.col];
+            currentData.sort((a, b) => {
+                const va = typeof a[key] === 'string' ? a[key].toLowerCase() : a[key];
+                const vb = typeof b[key] === 'string' ? b[key].toLowerCase() : b[key];
+                if (va < vb) return sortState.asc ? -1 : 1;
+                if (va > vb) return sortState.asc ?  1 : -1;
+                return 0;
+            });
+        }
+
+        // ── Init ──────────────────────────────────────────────────────────────
+        render(currentData);
+    </script>
 </body>
 </html>
