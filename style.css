@@ -516,3 +516,135 @@ ul{list-style:none}
   .audio-artwork{padding:36px 20px;min-height:155px}
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   ATTENDANCE SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.date-input {
+  padding: 10px 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--gray-800);
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+  background: #fff;
+}
+.date-input:focus { border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-100); }
+
+.attendance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.attendance-card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.attendance-card:hover { border-color: var(--primary-300); box-shadow: var(--shadow-sm); }
+.attendance-card.present {
+  background: var(--primary-50);
+  border-color: var(--primary-400);
+}
+.attendance-card input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-600);
+  cursor: pointer;
+}
+.attendance-info { flex: 1; min-width: 0; }
+.attendance-name { font-weight: 600; color: var(--gray-900); font-size: 15px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.attendance-class { font-size: 12px; color: var(--gray-500); }
+
+.attendance-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+.save-attendance-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--primary-600);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.25);
+}
+.save-attendance-btn:hover { background: var(--primary-700); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+.save-attendance-btn svg { width: 20px; height: 20px; }
+.attendance-message { color: var(--success); font-weight: 500; font-size: 14px; animation: fadeIn 0.3s; }
+
+.attendance-history-section h3 { font-size: 18px; margin-bottom: 16px; color: var(--gray-800); }
+.history-list { display: flex; flex-direction: column; gap: 12px; }
+.history-card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+.history-card:hover { border-left-color: var(--primary-500); transform: translateX(2px); }
+.history-date { font-weight: 600; color: var(--gray-900); display: flex; align-items: center; gap: 8px; }
+.history-date svg { width: 18px; height: 18px; color: var(--gray-500); }
+.history-stats { font-size: 14px; color: var(--gray-600); display: flex; align-items: center; gap: 16px; }
+.history-stats .present-count { color: var(--success); font-weight: 600; }
+.history-stats .absent-count { color: var(--danger); font-weight: 600; }
+
+/* ── Auth Overlay ─────────────────────────────────────────────────── */
+.attendance-auth {
+  display: flex; justify-content: center; align-items: center; min-height: 400px; padding: 20px;
+}
+.auth-card {
+  background: #fff; padding: 40px; border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; max-width: 420px; width: 100%; border: 1px solid var(--gray-200);
+}
+.auth-icon { width: 56px; height: 56px; color: var(--primary-600); margin: 0 auto 16px; background: var(--primary-50); padding: 12px; border-radius: 50%; display: block; }
+.auth-card h3 { font-size: 20px; color: var(--gray-900); margin-bottom: 8px; }
+.auth-card p { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; line-height: 1.5; }
+.auth-input { width: 100%; padding: 12px 16px; border: 1px solid var(--gray-200); border-radius: var(--radius-md); font-family: monospace; font-size: 14px; margin-bottom: 16px; outline: none; transition: border 0.2s; box-sizing: border-box; }
+.auth-input:focus { border-color: var(--primary-500); }
+.auth-btn { width: 100%; padding: 12px; background: var(--primary-600); color: #fff; border: none; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.auth-btn:hover { background: var(--primary-700); }
+.auth-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.auth-error { color: var(--danger); font-size: 13px; margin-top: 12px; font-weight: 500; }
+
+.attendance-controls { display: flex; gap: 12px; align-items: center; }
+.lock-btn { background: #fff; border: 1px solid var(--gray-200); color: var(--gray-600); border-radius: var(--radius-md); padding: 10px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.lock-btn:hover { background: var(--gray-50); color: var(--danger); border-color: var(--gray-300); }
+.lock-btn svg { width: 20px; height: 20px; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
