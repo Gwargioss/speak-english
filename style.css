@@ -2281,3 +2281,43 @@ html[data-theme="dark"] .icon-sun  { display: block; }
     font-size: 19px;
   }
 }
+
+/* Sidebar Dark Toggle Button */
+.dark-toggle-sidebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  background: var(--gray-100);
+  color: var(--gray-600);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.dark-toggle-sidebar:hover {
+  background: var(--gray-200);
+  color: var(--gray-900);
+}
+
+.dark-toggle-sidebar svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+html[data-theme="dark"] .dark-toggle-sidebar {
+  background: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+
+html[data-theme="dark"] .dark-toggle-sidebar:hover {
+  background: #4b5563;
+  color: #f9fafb;
+}
