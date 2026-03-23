@@ -715,3 +715,23 @@ document.addEventListener('DOMContentLoaded', () => {
     drawWaveform('waveform1', '#6366f1', '#a78bfa');
     drawWaveform('waveform2', '#6366f1', '#a78bfa');
 });
+
+/* ── Dark Mode ───────────────────────────────────────────────── */
+function toggleDarkMode() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('eduTrack_theme', newTheme);
+}
+
+function initTheme() {
+    const saved = localStorage.getItem('eduTrack_theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+}
+
+// Run immediately (before DOM loads) to avoid flash
+initTheme();

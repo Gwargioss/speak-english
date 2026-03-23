@@ -2040,3 +2040,244 @@ ul {
   width: 16px;
   height: 16px;
 }
+
+/* ══════════════════════════════════════════════════════
+   DARK MODE
+   ══════════════════════════════════════════════════════ */
+
+html[data-theme="dark"] {
+  --primary-50:  #1e1b4b;
+  --primary-100: #312e81;
+  --primary-200: #3730a3;
+  --gray-50:  #111827;
+  --gray-100: #1f2937;
+  --gray-200: #374151;
+  --gray-300: #4b5563;
+  --gray-400: #6b7280;
+  --gray-500: #9ca3af;
+  --gray-600: #d1d5db;
+  --gray-700: #e5e7eb;
+  --gray-800: #f3f4f6;
+  --gray-900: #f9fafb;
+  --success-bg:   #022c22;
+  --success-light:#064e3b;
+  --warning-bg:   #1c1400;
+  --warning-light:#451a03;
+  --danger-bg:    #1c0505;
+  --danger-light: #450a0a;
+}
+
+/* --- Elements with hardcoded #fff background --- */
+html[data-theme="dark"] body {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+html[data-theme="dark"] .sidebar {
+  background: #1f2937;
+  border-right-color: #374151;
+}
+
+html[data-theme="dark"] .navbar {
+  background: rgba(17, 24, 39, 0.88);
+  border-bottom-color: #374151;
+}
+
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .table-card,
+html[data-theme="dark"] .audio-card,
+html[data-theme="dark"] .instructor-card,
+html[data-theme="dark"] .auth-card,
+html[data-theme="dark"] .result-list-item,
+html[data-theme="dark"] .results-modal {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] .student-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] .table-card thead {
+  background: #111827;
+  border-bottom-color: #374151;
+}
+
+html[data-theme="dark"] .table-card td {
+  border-bottom-color: #374151;
+}
+
+html[data-theme="dark"] .table-card tbody tr:nth-child(even) {
+  background: #111827;
+}
+
+html[data-theme="dark"] .table-card tbody tr:hover {
+  background: #1e1b4b;
+}
+
+html[data-theme="dark"] .search-box input,
+html[data-theme="dark"] .filter-select,
+html[data-theme="dark"] .date-input,
+html[data-theme="dark"] .auth-input {
+  background: #1f2937;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+html[data-theme="dark"] .filter-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+html[data-theme="dark"] .count-badge {
+  background: #374151;
+  color: #d1d5db;
+}
+
+html[data-theme="dark"] .copy-btn {
+  background: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+
+html[data-theme="dark"] .copy-btn:hover {
+  background: #4b5563;
+}
+
+html[data-theme="dark"] .attendance-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] .attendance-card.present {
+  background: linear-gradient(145deg, #1e1b4b, #1f2937);
+  border-color: var(--primary-500);
+}
+
+html[data-theme="dark"] .check-circle {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+html[data-theme="dark"] .history-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] .lock-btn {
+  background: #1f2937;
+  border-color: #374151;
+  color: #9ca3af;
+}
+
+html[data-theme="dark"] .save-attendance-btn {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #f9fafb;
+  box-shadow: 4px 4px 0px #f9fafb;
+}
+
+html[data-theme="dark"] .save-attendance-btn:hover {
+  box-shadow: 2px 2px 0px #f9fafb;
+}
+
+html[data-theme="dark"] .save-attendance-btn:active {
+  box-shadow: 0px 0px 0px #f9fafb;
+}
+
+html[data-theme="dark"] .modal-header {
+  background: #111827;
+  border-bottom-color: #374151;
+}
+
+html[data-theme="dark"] .sidebar-footer {
+  border-top-color: #374151;
+}
+
+html[data-theme="dark"] .attendance-actions {
+  border-top-color: #374151;
+}
+
+html[data-theme="dark"] .card-actions {
+  border-top-color: #374151;
+}
+
+/* Dark Mode Toggle Button */
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--gray-600);
+  transition: all var(--transition);
+  border: 1px solid var(--gray-200);
+  background: var(--gray-100);
+}
+
+.dark-toggle:hover {
+  background: var(--gray-200);
+  color: var(--gray-900);
+}
+
+.dark-toggle svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Show correct icon based on theme */
+.icon-moon { display: block; }
+.icon-sun  { display: none;  }
+
+html[data-theme="dark"] .icon-moon { display: none;  }
+html[data-theme="dark"] .icon-sun  { display: block; }
+
+/* ══════════════════════════════════════════════════════
+   MOBILE ARABIC SUBTITLE FIX
+   ══════════════════════════════════════════════════════ */
+
+/* Default (non-playing) state — ensure Arabic label is always visible */
+.artwork-subtitle {
+  display: block;
+}
+
+/* Mobile ≤480px — scale down has-lyrics text to fit the smaller artwork */
+@media(max-width: 480px) {
+  .artwork-subtitle {
+    font-size: 11px;
+    margin-top: 8px;
+    margin-bottom: -2px;
+  }
+
+  .audio-artwork.has-lyrics .artwork-center-icon {
+    transform: scale(0.7) translateY(-8px);
+  }
+
+  .audio-artwork.has-lyrics .artwork-subtitle {
+    font-size: 12px;
+    margin-top: 12px;
+  }
+
+  .audio-artwork.has-lyrics .artwork-label {
+    font-size: 16px;
+    margin-top: 2px;
+  }
+}
+
+/* Small tablets 481–768px */
+@media(min-width: 481px) and (max-width: 768px) {
+  .artwork-subtitle {
+    font-size: 12px;
+  }
+
+  .audio-artwork.has-lyrics .artwork-subtitle {
+    font-size: 13px;
+  }
+
+  .audio-artwork.has-lyrics .artwork-label {
+    font-size: 19px;
+  }
+}
