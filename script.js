@@ -251,32 +251,32 @@ function togglePlay(idx) {
     }
 }
 
-// Lyrics Data
+// Lyrics Data with Arabic Translations
 const lyricsData = [
     // Lord's Prayer (approx 28s)
     [
-        { t: 0, text: "The Lord's Prayer" },
-        { t: 0.8, text: "Our Father in heaven," },
-        { t: 3.0, text: "hallowed be Your name," },
-        { t: 4.8, text: "Your kingdom come," },
-        { t: 6.6, text: "Your will be done," },
-        { t: 8.3, text: "on earth as in heaven." },
-        { t: 10.8, text: "Give us today our daily bread." },
-        { t: 13.0, text: "Forgive us our sins" },
-        { t: 14.8, text: "as we forgive those who sin against us." },
-        { t: 17.5, text: "Lead us not into temptation" },
-        { t: 19.3, text: "but deliver us from evil." },
-        { t: 21.3, text: "For the kingdom, the power," },
-        { t: 23.5, text: "and the glory are Yours" },
-        { t: 25.0, text: "now and forever." },
-        { t: 26.2, text: "Amen." }
+        { t: 0, text: "The Lord's Prayer", arabic: "الصلاة الربانية" },
+        { t: 0.8, text: "Our Father in heaven,", arabic: "أبانا الذي في السماوات" },
+        { t: 3.0, text: "hallowed be Your name,", arabic: "ليتقدس اسمك" },
+        { t: 4.8, text: "Your kingdom come,", arabic: "ليأتِ ملكوتك" },
+        { t: 6.6, text: "Your will be done,", arabic: "لتكن مشيئتك" },
+        { t: 8.3, text: "on earth as in heaven.", arabic: "كما في السماء كذلك على الأرض" },
+        { t: 10.8, text: "Give us today our daily bread.", arabic: "خبزنا كفافنا أعطنا اليوم" },
+        { t: 13.0, text: "Forgive us our sins", arabic: "واغفر لنا ذنوبنا" },
+        { t: 14.8, text: "as we forgive those who sin against us.", arabic: "كما نغفر نحن أيضاً للمذنبين إلينا" },
+        { t: 17.5, text: "Lead us not into temptation", arabic: "ولا تُدخلنا في تجربة" },
+        { t: 19.3, text: "but deliver us from evil.", arabic: "لكن نجنا من الشرير" },
+        { t: 21.3, text: "For the kingdom, the power,", arabic: "لأن لك الملك والقوة" },
+        { t: 23.5, text: "and the glory are Yours", arabic: "والمجد" },
+        { t: 25.0, text: "now and forever.", arabic: "إلى الأبد" },
+        { t: 26.2, text: "Amen.", arabic: "آمين" }
     ],
     // The Trinitarian Formula (approx 6s)
     [
-        { t: 0, text: "In the name of the Father," },
-        { t: 1.2, text: "and of the Son," },
-        { t: 2.7, text: "and of the Holy Spirit," },
-        { t: 4.2, text: "one God. Amen" }
+        { t: 0, text: "In the name of the Father,", arabic: "باسم الآب" },
+        { t: 1.2, text: "and of the Son,", arabic: "والابن" },
+        { t: 2.7, text: "and of the Holy Spirit,", arabic: "والروح القدس" },
+        { t: 4.2, text: "one God. Amen", arabic: "إله واحد. آمين" }
     ]
 ];
 
@@ -291,25 +291,36 @@ function updateProgress(idx) {
     const time = audio.currentTime;
     const lyrics = lyricsData[idx];
     let activeText = "AUDIO";
+    let activeArabic = "ترجمة";
     let hasLyric = false;
 
     for (let i = lyrics.length - 1; i >= 0; i--) {
         if (time >= lyrics[i].t) {
             activeText = lyrics[i].text;
+            activeArabic = lyrics[i].arabic || "ترجمة";
             hasLyric = true;
             break;
         }
     }
 
     const labelEl = document.getElementById('lyrics' + (idx + 1));
+    const arabicEl = document.getElementById('arabic' + (idx + 1));
     const artworkEl = labelEl.closest('.audio-artwork');
 
+    // Update English text
     if (activeText !== labelEl.textContent) {
-        // Remove animation class to reset it
         labelEl.style.animation = 'none';
         labelEl.offsetHeight; // Trigger reflow
         labelEl.style.animation = null;
         labelEl.textContent = activeText;
+    }
+
+    // Update Arabic text
+    if (activeArabic !== arabicEl.textContent) {
+        arabicEl.style.animation = 'none';
+        arabicEl.offsetHeight; // Trigger reflow
+        arabicEl.style.animation = null;
+        arabicEl.textContent = activeArabic;
     }
 
     if (hasLyric && !audio.paused) {
@@ -317,6 +328,7 @@ function updateProgress(idx) {
     } else {
         artworkEl.classList.remove('has-lyrics');
         labelEl.textContent = "AUDIO";
+        arabicEl.textContent = "ترجمة";
     }
 }
 
@@ -336,6 +348,7 @@ function resetPlayer(idx) {
 
     // Reset lyrics
     document.getElementById('lyrics' + (idx + 1)).textContent = "AUDIO";
+    document.getElementById('arabic' + (idx + 1)).textContent = "ترجمة";
     document.getElementById('lyrics' + (idx + 1)).closest('.audio-artwork').classList.remove('has-lyrics');
 }
 
@@ -439,7 +452,7 @@ async function loginToGitHub() {
     const btn = document.getElementById('authBtn');
     const err = document.getElementById('authError');
 
-    if(!input) return;
+    if (!input) return;
     btn.disabled = true;
     btn.textContent = 'Authenticating...';
     err.classList.add('hidden');
@@ -449,7 +462,7 @@ async function loginToGitHub() {
             headers: { 'Authorization': `token ${input}` }
         });
 
-        if(res.ok) {
+        if (res.ok) {
             ghToken = input;
             localStorage.setItem('eduTrack_ghToken', ghToken);
             document.getElementById('attendanceAuth').classList.add('hidden');
@@ -458,7 +471,7 @@ async function loginToGitHub() {
         } else {
             throw new Error('Invalid token');
         }
-    } catch(e) {
+    } catch (e) {
         err.classList.remove('hidden');
     } finally {
         btn.disabled = false;
@@ -475,7 +488,7 @@ function logoutGitHub() {
 }
 
 async function initAttendanceUI() {
-    if(!ghToken) {
+    if (!ghToken) {
         document.getElementById('attendanceAuth').classList.remove('hidden');
         document.getElementById('attendanceDashboard').classList.add('hidden');
         return;
@@ -485,7 +498,7 @@ async function initAttendanceUI() {
     }
 
     const dtInput = document.getElementById('attendanceDate');
-    if(!dtInput.value) {
+    if (!dtInput.value) {
         dtInput.value = new Date().toISOString().split('T')[0];
     }
 
@@ -505,7 +518,7 @@ async function fetchAttendanceData() {
             }
         });
 
-        if(res.ok) {
+        if (res.ok) {
             const data = await res.json();
             fileSha = data.sha;
             // Decode base64 - FIXED: Using proper encoding/decoding
@@ -513,14 +526,14 @@ async function fetchAttendanceData() {
                 return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
             }).join(''));
             attendanceRecords = JSON.parse(decoded);
-        } else if(res.status === 404) {
+        } else if (res.status === 404) {
             // File doesn't exist yet
             attendanceRecords = [];
             fileSha = '';
         } else {
             throw new Error('Failed to fetch API');
         }
-    } catch(e) {
+    } catch (e) {
         console.error(e);
         list.innerHTML = `<div style="padding:20px; text-align:center; color:var(--danger);">Error fetching data. Check token permissions.</div>`;
         return;
@@ -555,13 +568,13 @@ function renderAttendanceGrid(sessionData = null) {
 function toggleAttendanceCard(idx) {
     const card = document.getElementById(`attCard_${idx}`);
     const check = document.getElementById(`attCheck_${idx}`);
-    if(check.checked) card.classList.add('present');
+    if (check.checked) card.classList.add('present');
     else card.classList.remove('present');
 }
 
 function loadSessionData(dateStr) {
     const record = attendanceRecords.find(r => r.date === dateStr);
-    if(!record) return;
+    if (!record) return;
     document.getElementById('attendanceDate').value = dateStr;
     renderAttendanceGrid(record);
     window.scrollTo({
@@ -572,7 +585,7 @@ function loadSessionData(dateStr) {
 
 async function pushAttendanceData() {
     const dt = document.getElementById('attendanceDate').value;
-    if(!dt) return alert("Please select a date first.");
+    if (!dt) return alert("Please select a date first.");
 
     const btn = document.getElementById('saveAttBtn');
     const originalText = btn.innerHTML;
@@ -581,16 +594,16 @@ async function pushAttendanceData() {
 
     const presentIds = [];
     students.forEach((s, idx) => {
-        if(document.getElementById(`attCheck_${idx}`).checked) presentIds.push(s.name);
+        if (document.getElementById(`attCheck_${idx}`).checked) presentIds.push(s.name);
     });
 
     const existingIdx = attendanceRecords.findIndex(r => r.date === dt);
     const record = { date: dt, present: presentIds, total: students.length };
 
-    if(existingIdx >= 0) attendanceRecords[existingIdx] = record;
+    if (existingIdx >= 0) attendanceRecords[existingIdx] = record;
     else attendanceRecords.push(record);
 
-    attendanceRecords.sort((a,b) => new Date(b.date) - new Date(a.date));
+    attendanceRecords.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     try {
         // FIXED: Using proper base64 encoding for UTF-8
@@ -603,7 +616,7 @@ async function pushAttendanceData() {
             content: contentStr,
             branch: 'main'
         };
-        if(fileSha) body.sha = fileSha;
+        if (fileSha) body.sha = fileSha;
 
         const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`, {
             method: 'PUT',
@@ -615,7 +628,7 @@ async function pushAttendanceData() {
             body: JSON.stringify(body)
         });
 
-        if(!res.ok) throw new Error('Push failed');
+        if (!res.ok) throw new Error('Push failed');
 
         const data = await res.json();
         fileSha = data.content.sha; // Update sha for future writes
@@ -625,7 +638,7 @@ async function pushAttendanceData() {
         setTimeout(() => msg.classList.add('hidden'), 3000);
 
         renderAttendanceHistory();
-    } catch(e) {
+    } catch (e) {
         console.error(e);
         alert("Failed to save to GitHub. Check your connection and token permissions.");
     } finally {
@@ -636,7 +649,7 @@ async function pushAttendanceData() {
 
 function renderAttendanceHistory() {
     const list = document.getElementById('attendanceHistory');
-    if(!attendanceRecords.length) {
+    if (!attendanceRecords.length) {
         list.innerHTML = `<div class="no-data" style="text-align:center;padding:20px;color:var(--gray-500);">No session records yet</div>`;
         return;
     }
@@ -659,7 +672,7 @@ function renderAttendanceHistory() {
 
 function showAllResults() {
     const grid = document.getElementById('resultsModalGrid');
-    if(!attendanceRecords || !attendanceRecords.length) {
+    if (!attendanceRecords || !attendanceRecords.length) {
         grid.innerHTML = '<div style="padding:20px; text-align:center; color:var(--gray-500); grid-column: 1/-1;">No sessions recorded yet.</div>';
     } else {
         const totalSessions = attendanceRecords.length;
@@ -667,7 +680,7 @@ function showAllResults() {
         students.forEach(s => {
             let presentCount = 0;
             attendanceRecords.forEach(r => {
-                if(r.present && r.present.includes(s.name)) presentCount++;
+                if (r.present && r.present.includes(s.name)) presentCount++;
             });
             const absentCount = totalSessions - presentCount;
 
