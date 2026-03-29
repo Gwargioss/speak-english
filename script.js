@@ -274,8 +274,8 @@ const lyricsData = [
     // The Trinitarian Formula (approx 6s)
     [
         { t: 0, text: "In the name of the Father,", arabic: "باسم الآب" },
-        { t: 1.2, text: "and of the Son,", arabic: "والابن" },
-        { t: 2.7, text: "and of the Holy Spirit,", arabic: "والروح القدس" },
+        { t: 1.2, text: "the Son,", arabic: "والابن" },
+        { t: 2.7, text: "and the Holy Spirit,", arabic: "والروح القدس" },
         { t: 4.2, text: "one God. Amen", arabic: "إله واحد. آمين" }
     ]
 ];
